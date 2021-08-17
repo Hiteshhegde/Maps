@@ -1,0 +1,31 @@
+{% extends 'maps/base.html' %}
+{% load crispy_forms_tags%}
+
+
+{% block title %}
+Calculate Distance
+{% endblock title %}
+
+{% block content %}
+
+<hr>
+    <div class="container">
+    {{ map|safe }}
+    <div class="container">
+        <p>Distance between <strong>{{ location }}</strong> to <strong>{{ destination }} </strong> is <strong>{{ distance }}km</strong></p>
+    </div>
+    </div>
+<hr>
+
+<div class="container">
+    <form action="" method="post" autocomplete="off" class='form' >
+        {% csrf_token %}
+        {{ form|crispy }} 
+        <button type="submit" class="btn btn-primary">Confirm</button>
+    </form>
+</div>
+<br>
+This product includes GeoLite2 data created by MaxMind, available from
+<a href="https://www.maxmind.com">https://www.maxmind.com</a>.
+
+{% endblock content %}
